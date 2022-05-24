@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class Contact
 {
     private String firstName;
@@ -70,7 +72,23 @@ public class Contact
         this.zip = zip;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", phNo=" + phNo +
+                ", zip=" + zip +
+                '}';
     }
+
+
+
+        }
+
+
+
+
+
