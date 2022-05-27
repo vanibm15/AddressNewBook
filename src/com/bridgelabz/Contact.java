@@ -2,20 +2,20 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
-public class Contact
-{
+public class Contact {
     private String firstName;
     private String lastName;
     private String address;
     private String email;
-    private long phNo;
+    private String phNo;
     private long zip;
-Scanner scanner=new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+
     public Contact() {
     }
 
 
-    public Contact(String firstName, String lastName, String address, String email, long phNo, long zip) {
+    public Contact(String firstName, String lastName, String address, String email, String phNo, long zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -24,7 +24,7 @@ Scanner scanner=new Scanner(System.in);
         this.zip = zip;
     }
 
-        public String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -56,11 +56,11 @@ Scanner scanner=new Scanner(System.in);
         this.email = email;
     }
 
-    public long getPhNo() {
+    public String getPhNo() {
         return phNo;
     }
 
-    public void setPhNo(long phNo) {
+    public void setPhNo(String phNo) {
         this.phNo = phNo;
     }
 
@@ -83,29 +83,34 @@ Scanner scanner=new Scanner(System.in);
                 ", zip=" + zip +
                 '}';
     }
-    void addContact(){
+
+    void addContact() {
         System.out.println("enter the FirstName");
-        firstName=scanner.next();
+        firstName = scanner.next();
         System.out.println("enter  the last name");
-        lastName=scanner.next();
+        lastName = scanner.next();
         System.out.println("enter the address");
-        address=scanner.next();
+        address = scanner.next();
         System.out.println("enter the email");
-        email=scanner.next();
+        email = scanner.next();
         System.out.println("enter the phone number");
-        phNo=scanner.nextInt();
+        phNo = scanner.next();
         System.out.println("enter the zip");
-        zip=scanner.nextLong();
+        zip = scanner.nextLong();
     }
-    void displayContact(){
-        System.out.println("enter the firstname :" + firstName+"\n"+ "enter the last name :" +lastName+"\n"
-       +"enter the address :" + address+"\n"+ "enter the email :" + email+"\n"+ "enter the phone number :" + phNo + "\n"
-        +"enter the zip :" + zip + "\n");
-        }
+
+    void editcontact() {
+
+    }
+
+    void displayContact() {
+        System.out.println("enter the firstname :" + firstName + "\n" + "enter the last name :" + lastName + "\n"
+                + "enter the address :" + address + "\n" + "enter the email :" + email + "\n" + "enter the phone number :" + phNo + "\n"
+                + "enter the zip :" + zip + "\n");
+    }
 
 
-
-        }
+}
 
 
 
