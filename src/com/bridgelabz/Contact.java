@@ -10,7 +10,7 @@ public class Contact
     private String email;
     private long phNo;
     private long zip;
-
+Scanner scanner=new Scanner(System.in);
     public Contact() {
     }
 
@@ -83,6 +83,25 @@ public class Contact
                 ", zip=" + zip +
                 '}';
     }
+    void addContact(){
+        System.out.println("enter the FirstName");
+        firstName=scanner.next();
+        System.out.println("enter  the last name");
+        lastName=scanner.next();
+        System.out.println("enter the address");
+        address=scanner.next();
+        System.out.println("enter the email");
+        email=scanner.next();
+        System.out.println("enter the phone number");
+        phNo=scanner.nextInt();
+        System.out.println("enter the zip");
+        zip=scanner.nextLong();
+    }
+    void displayContact(){
+        System.out.println("enter the firstname :" + firstName+"\n"+ "enter the last name :" +lastName+"\n"
+       +"enter the address :" + address+"\n"+ "enter the email :" + email+"\n"+ "enter the phone number :" + phNo + "\n"
+        +"enter the zip :" + zip + "\n");
+        }
 
 
 
