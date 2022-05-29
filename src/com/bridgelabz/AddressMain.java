@@ -6,11 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-publ class AddressMain {
+public class AddressMain {
 
     static Map<String, Contacts> contactsMap = new HashMap<>();
 
     static Scanner scanner = new Scanner(System.in);
+
 
     static void addNewContact() {
         Contacts contacts = new Contacts();
