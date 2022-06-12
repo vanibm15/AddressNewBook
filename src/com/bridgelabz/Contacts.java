@@ -57,6 +57,7 @@ public class Contacts {
             Contacts contacts1 = new Contacts(firstname, lastname, email,
                     phoneNumber, address, zip, state, city);
 
+
         }
     }
 
