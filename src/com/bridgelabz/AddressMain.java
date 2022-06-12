@@ -5,10 +5,23 @@ import java.util.stream.Collectors;
 
 public class AddressMain {
 
+
     static Map<String, AddressBook> addressBookMap = new HashMap<>();
     static Map<String, List<Contacts>> cityContactMap = new HashMap<>();
     static Map<String, List<Contacts>> stateContactMap = new HashMap<>();
 
+    void getCount(String state) {
+        int count = 0;
+        for (Map.Entry<String, AddressBook> addressBookEntry : addressBookMap.entrySet()) {
+            for (int i = 0; i < (addressBookEntry.getValue()).contactsList.size(); i++) {
+                Contacts contacts = addressBookEntry.getValue().contactsList.get(i);
+                if (state.equals(contacts.getState())) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("Total Person Count in state " + state + ": " + count);
+    }
 
     public static void main(String[] args) {
         Contacts contacts1 = new Contacts("vani", "bm", "vani@123", "123456",
@@ -45,6 +58,8 @@ public class AddressMain {
             // System.out.println("state Contact map");
             //System.out.println(stateContactMap);
             System.out.println(contactsList);
+            AddressMain addressMain = new AddressMain();
+            addressMain.getCount("karnataka");
         }
     }
 }
