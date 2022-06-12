@@ -1,7 +1,5 @@
 package com.bridgelabz;
 
-import com.bridgelabz.Contacts;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -9,6 +7,8 @@ import java.util.Scanner;
 public class AddressMain {
 
     static Map<String, Contacts> contactsMap = new HashMap<>();
+static Map<String,AddressBook>addressBookMap=new HashMap<>();
+
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -43,6 +43,7 @@ public class AddressMain {
 
     private static void deleteContact() {
         System.out.println("Enter the ContactNumber");
+
         String phoneNumber = scanner.next();
         Contacts contacts = contactsMap.get(phoneNumber);
         if (contacts != null) {
@@ -56,22 +57,26 @@ public class AddressMain {
         int choice;
         do {
             System.out.println("Enter the choice");
-            System.out.println("1:ADD CONTACT");
-            System.out.println("2:EDIT CONTACT");
-            System.out.println("3:DISPLAY CONTACT");
-            System.out.println("4:DELETE CONTACT");
+            System.out.println("1:ADD ADDRESSBOOK");
+            System.out.println("2:ADD CONTACT");
+            System.out.println("3:EDIT CONTACT");
+            System.out.println("4:DISPLAY CONTACT");
+            System.out.println("5:DELETE CONTACT");
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    addNewContact();
+                    addNewAddressBook();
                     break;
                 case 2:
-                    editContact();
+                    addNewContact();
                     break;
                 case 3:
-                    showContact();
+                    editContact();
                     break;
                 case 4:
+                    showContact();
+                    break;
+                case 5:
                     deleteContact();
                     break;
                 default:
@@ -80,9 +85,20 @@ public class AddressMain {
             }
         } while (choice != 5);
     }
+    static void addNewAddressBook(){
+        AddressBook addressBook=new AddressBook();
+        addressBook.addAddressBook();
+        addressBookMap.put(addressBook.getAddressbookName(),addressBook);
+    }
 
     public static void main(String[] args) {
         AddressMain addressBook = new AddressMain();
-        contactOperations();
+       contactOperations();
+  //     AddressBook addressBook1=new AddressBook();
+     //  AddressBook addressBook2=new AddressBook();
+       //AddressBook addressBook3=new AddressBook();
+     //   addNewAddressBook();
+
+
     }
 }
