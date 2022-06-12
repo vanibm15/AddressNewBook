@@ -57,6 +57,7 @@ public class AddressMain {
          //   System.out.println(contactsList);
            // AddressMain addressMain = new AddressMain();
           //  addressMain.getCount("karnataka");
+
             for (Map.Entry<String, AddressBook> addressBookEntry : addressBookMap.entrySet()) {
                 AddressBook value = addressBookEntry.getValue();
                 List<Contacts> sortedList = value.contactsList.stream().
