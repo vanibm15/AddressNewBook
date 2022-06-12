@@ -61,11 +61,11 @@ public class Contacts {
     }
 
     void displayContact() {
+
         System.out.println("FirstName:" + firstname + "\n" + "Lastname:"
                 + lastname + "\n" + "Phonenumber:" + "\n" + phoneNumber + "Address:" + address + "\n"
                 + "zip:" + zip + "\n" + "state:" + state + "\n" + "city" + city);
     }
-
     public String getFirstname() {
         return firstname;
     }
