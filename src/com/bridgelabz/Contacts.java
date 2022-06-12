@@ -81,6 +81,7 @@ public class Contacts {
         this.lastname = lastname;
     }
 
+
     public String getEmail() {
         return email;
     }
