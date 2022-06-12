@@ -8,7 +8,7 @@ public class AddressBook {
 
 
     private String addressbookName;
-    public  List<Contacts> contactsList=new ArrayList<>();
+    public  List<Contacts> contactsList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
 
@@ -19,7 +19,6 @@ public class AddressBook {
         this.addressbookName = addressbookName;
 
     }
-
     public String getAddressbookName() {
         return addressbookName;
     }
@@ -31,7 +30,6 @@ public class AddressBook {
     void addAddressBook() {
         System.out.println("enter the name of addressbook");
         addressbookName=scanner.next();
-
 
     }
 }
