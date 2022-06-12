@@ -35,6 +35,7 @@ public class Contacts {
         int numberOfContacts = scanner.nextInt();
         for (int i = 0; i < numberOfContacts; i++) {
             System.out.println("Enter the details of contact number " + (i + 1));
+
             System.out.println("Enter the firstName");
             firstname = scanner.next();
             System.out.println("Enter the Lastname");
