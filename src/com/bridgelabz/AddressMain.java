@@ -1,105 +1,55 @@
 package com.bridgelabz;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressMain {
 
-
-    static Map<String, Contacts> contactsMap = new HashMap<>();
-static Map<String,AddressBook>addressBookMap=new HashMap<>();
-
-
-    static Scanner scanner = new Scanner(System.in);
-
-
-    static void addNewContact() {
-        Contacts contacts = new Contacts();
-        contacts.addContact();
-        contactsMap.put(contacts.getPhoneNumber(), contacts);
-    }
-
-    private static void editContact() {
-        System.out.println("Enter the contactNumber");
-        String phoneNumber = scanner.next();
-        Contacts contacts = contactsMap.get(phoneNumber);
-        if (contacts != null) {
-            contacts.addContact();
-        } else {
-            System.out.println("The contact is not present in Addressbook");
-        }
-    }
-
-    private static void showContact() {
-        System.out.println("Enter the contactNumber");
-        String phoneNumber = scanner.next();
-        Contacts contacts = contactsMap.get(phoneNumber);
-        if (contacts != null) {
-            contacts.displayContact();
-        } else {
-            System.out.println("The contact is not present in AddressBook");
-        }
-    }
-
-    private static void deleteContact() {
-        System.out.println("Enter the ContactNumber");
-
-        String phoneNumber = scanner.next();
-        Contacts contacts = contactsMap.get(phoneNumber);
-        if (contacts != null) {
-            contactsMap.remove(contacts);
-        } else {
-            System.out.println("The contact is not present in Addressbook");
-        }
-    }
-
-    static void contactOperations() {
-        int choice;
-        do {
-            System.out.println("Enter the choice");
-            System.out.println("1:ADD ADDRESSBOOK");
-            System.out.println("2:ADD CONTACT");
-            System.out.println("3:EDIT CONTACT");
-            System.out.println("4:DISPLAY CONTACT");
-            System.out.println("5:DELETE CONTACT");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    addNewAddressBook();
-                    break;
-                case 2:
-                    addNewContact();
-                    break;
-                case 3:
-                    editContact();
-                    break;
-                case 4:
-                    showContact();
-                    break;
-                case 5:
-                    deleteContact();
-                    break;
-                default:
-                    System.out.println("Enter the choices between 1-5");
-                    contactOperations();
-            }
-        } while (choice != 5);
-    }
-    static void addNewAddressBook(){
-        AddressBook addressBook=new AddressBook();
-        addressBook.addAddressBook();
-        addressBookMap.put(addressBook.getAddressbookName(),addressBook);
-    }
+    static Map<String,AddressBook>addressBookMap=new HashMap<>();
+    static Map<String,List<Contacts>>cityContactMap = new HashMap<>();
+    static Map<String,List<Contacts>>stateContactMap = new HashMap<>();
 
     public static void main(String[] args) {
-        AddressMain addressBook = new AddressMain();
-       contactOperations();
-  //     AddressBook addressBook1=new AddressBook();
-     //  AddressBook addressBook2=new AddressBook();
-       //AddressBook addressBook3=new AddressBook();
-     //   addNewAddressBook();
+        Contacts contacts1 = new Contacts("vani","bm","vani@123","123456",
+                "hubli",580021,"karnataka","bangalore");
+        Contacts contacts2 = new Contacts("varsha","bm","vvv@123","123456789","reddycolony",580024,"chennai","chennai");
+        Contacts contacts3 = new Contacts("pinki","patil","ppp@123","987456321","lehcolony",
+                58550,"himachalpradesh","manali");
+        Contacts contacts4 = new Contacts("raj","kk","raj@983","87456","rajajinagar",500031,
+                "karnataka","bangalore");
+        Contacts contacts5 = new Contacts("amit","mm","amit@123","1987456789","gandhichowk",580000,"delhi","delhi");
+        Contacts contacts6 = new Contacts("parth","hansi","paru@123","1324556789","ggg",500024,"maharastra","mumbai");
 
+        AddressBook addressBook1 =new AddressBook();
+        addressBook1.contactsList.add(contacts1);
+        addressBook1.contactsList.add(contacts3);
+        addressBook1.contactsList.add(contacts6);
 
+        AddressBook addressBook2 = new AddressBook();
+        addressBook2.contactsList.add(contacts2);
+        addressBook2.contactsList.add(contacts4);
+        addressBook2.contactsList.add(contacts5);
+
+        addressBookMap.put("addressbook1",addressBook1);
+        addressBookMap.put("addressbook2",addressBook2);
+//        System.out.println(addressBook1);
+//        System.out.println(addressBook2);
+        addressBook1.contactsList.stream().forEach(x->{
+            if(stateContactMap.containsKey(x.getState())){
+                List<Contacts> contactsList =stateContactMap.get(x.getState());
+                contactsList.add(x);
+            }
+            else {
+                List<Contacts> contactsList=new ArrayList<>();
+                contactsList.add(x);
+                stateContactMap.put(x.getState(),contactsList);
+            }
+        });
+
+        System.out.println(addressBook1.contactsList);
+        System.out.println("state Contact map");
+        System.out.println(stateContactMap);
     }
-}
+    }
+
+
+
