@@ -56,7 +56,7 @@ public class Contacts {
             System.out.println("==================================");
             Contacts contacts1 = new Contacts(firstname, lastname, email,
                     phoneNumber, address, zip, state, city);
-            AddressMain.contactsMap.put(contacts1.getPhoneNumber(), contacts1);
+
         }
     }
 
@@ -119,7 +119,8 @@ public class Contacts {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(String state)
+    {
         this.state = state;
     }
 
